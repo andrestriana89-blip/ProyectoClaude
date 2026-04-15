@@ -1,0 +1,124 @@
+{
+  "restaurante": "Hacienda Parrilla Bar & Grill",
+  "ubicacion": {
+    "direccion": "1234 Latin Quarter Blvd",
+    "ciudad": "Miami, FL 33142",
+    "telefono": "+1 (123) 456-7890",
+    "whatsapp": "+1234567890",
+    "horarios": {
+      "lunes_jueves": "11:00 AM - 10:00 PM",
+      "viernes_sabado": "11:00 AM - 12:00 AM",
+      "domingo": "12:00 PM - 9:00 PM"
+    }
+  },
+  "redes_sociales": {
+    "instagram": "@haciendaparrillaoficial",
+    "instagram_url": "https://www.instagram.com/haciendaparrillaoficial/",
+    "facebook": "Hacienda Parrilla",
+    "tiktok": "@haciendaparrilla"
+  },
+  "estadisticas_reel": {
+    "vistas": "58,000",
+    "likes": "4,200",
+    "comentarios": "312",
+    "seguidores": "12,000",
+    "descripcion": "Parrillada del viernes NO puede faltar... ¡ven con tu familia! #Parrilla #LatinoFood #USA"
+  },
+  "menu": {
+    "carnes": [
+      {
+        "nombre": "Churrasco Especial",
+        "descripcion": "Lomo fino de res a la parrilla con chimichurri casero, papas criollas y ensalada fresca",
+        "precio": 28,
+        "badge": "Popular",
+        "imagen": "https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=600"
+      },
+      {
+        "nombre": "Ribeye 14oz",
+        "descripcion": "Corte ribeye al punto de su preferencia, acompañado de vegetales a la parrilla y salsa criolla",
+        "precio": 38,
+        "badge": null,
+        "imagen": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?q=80&w=600"
+      },
+      {
+        "nombre": "Lomo al Trapo",
+        "descripcion": "Tradicional lomo envuelto en costra de sal y especias, cocinado directamente al fuego vivo",
+        "precio": 42,
+        "badge": null,
+        "imagen": "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=600"
+      }
+    ],
+    "parrilladas": [
+      {
+        "nombre": "Parrillada Hacienda",
+        "descripcion": "Combinación de costillas, chorizos, morcilla, pollo y acompañamientos. La experiencia completa para compartir",
+        "precio": 65,
+        "personas": 2,
+        "badge": "Para 2",
+        "imagen": "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600"
+      }
+    ],
+    "mariscos": [
+      {
+        "nombre": "Camarones al Ajillo",
+        "descripcion": "Camarones jumbo salteados con mantequilla, ajo, limón y especias secretas de la casa",
+        "precio": 26,
+        "badge": null,
+        "imagen": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=600"
+      }
+    ],
+    "bebidas": [
+      {
+        "nombre": "Michelada Hacienda",
+        "descripcion": "Cerveza importada con nuestra mezcla secreta de especias, limón, salsa y borde de sal picante",
+        "precio": 9,
+        "badge": null,
+        "imagen": "https://images.unsplash.com/photo-1543253687-c931c8e01820?q=80&w=600"
+      }
+    ]
+  },
+  "testimonios": [
+    {
+      "nombre": "María Fernanda G.",
+      "ubicacion": "Miami, FL",
+      "rating": 5,
+      "texto": "La mejor parrilla colombiana que he probado fuera de Colombia. El churrasco me recordó a mi abuela en Medellín. Volvemos cada fin de semana con toda la familia",
+      "fuente": "Google Reviews"
+    },
+    {
+      "nombre": "Carlos Andrés M.",
+      "ubicacion": "Orlando, FL",
+      "rating": 5,
+      "texto": "Increíble ambiente y servicio. La parrillada para dos personas fue suficiente para cuatro. El chimichurri es de otro nivel. Definitivamente el mejor restaurante latino de la zona",
+      "fuente": "Google Reviews"
+    },
+    {
+      "nombre": "Alejandra R.",
+      "ubicacion": "Houston, TX",
+      "rating": 5,
+      "texto": "Celebré mi cumpleaños aquí y fue una experiencia perfecta. El personal muy atento, la comida deliciosa y el precio muy justo. Hacienda Parrilla es ya nuestro lugar favorito",
+      "fuente": "Google Reviews"
+    }
+  ],
+  "estadisticas": {
+    "anos_operacion": 6,
+    "clientes_satisfechos": 20000,
+    "platos_menu": 50,
+    "google_rating": 4.9
+  },
+  "paleta_colores": {
+    "dorado_principal": "#c8a96e",
+    "dorado_claro": "#e8c88a",
+    "rojo_parrilla": "#c0392b",
+    "rojo_ember": "#e74c1c",
+    "fondo_oscuro": "#0f0f0f",
+    "fondo_mas_oscuro": "#080808",
+    "texto_principal": "#e8e0d0",
+    "texto_muted": "#a0907a"
+  },
+  "tipografia": {
+    "headers": "Playfair Display",
+    "body": "Poppins",
+    "display_cta": "Oswald"
+  }
+}

@@ -1,0 +1,2206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Bumangués — Cocina Colombiana Auténtica | San Jose, CA</title>
+    <meta name="description" content="El mejor restaurante colombiano de San Jose, California. Sabor santandereano auténtico, platos típicos y ambiente familiar. Abierto todos los días 6pm–11:30pm.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600;700&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+/* ============================================================
+   VARIABLES & RESET
+   ============================================================ */
+:root {
+  --color-dark: #0f0f0f;
+  --color-darker: #080808;
+  --color-gold: #c0392b;
+  --color-gold-light: #e74c3c;
+  --color-red: #900;
+  --color-ember: #c0392b;
+  --color-cream: #f5eeee;
+  --color-text: #ede0e0;
+  --color-text-muted: #a08080;
+  --nav-height: 80px;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Poppins', sans-serif;
+  --font-display: 'Oswald', sans-serif;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-dark);
+  color: var(--color-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 3px; }
+
+/* mundial removido */
+
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+
+#navbar.scrolled {
+  background: rgba(8, 8, 8, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(200, 169, 110, 0.2);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-gold);
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo .logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-ember));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color var(--transition);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width var(--transition);
+}
+
+.nav-links a:hover { color: var(--color-gold); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-ember)) !important;
+  color: #fff !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(200, 169, 110, 0.3);
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(200, 169, 110, 0.5) !important;
+}
+
+.nav-cta::after { display: none !important; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background: var(--color-gold);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+#hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: var(--nav-height);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1920') center/cover;
+  transform: scale(1.1);
+  animation: heroZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.1); }
+  to { transform: scale(1.05); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.6) 50%,
+    rgba(8,8,8,1) 100%
+  );
+}
+
+.embers {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ember {
+  position: absolute;
+  bottom: -10px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  animation: emberFloat linear infinite;
+  box-shadow: 0 0 6px var(--color-gold);
+}
+
+@keyframes emberFloat {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(360deg) translateX(60px); opacity: 0; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 20px;
+  animation: heroFadeIn 1.2s ease-out 0.3s both;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200, 169, 110, 0.15);
+  border: 1px solid rgba(200, 169, 110, 0.4);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(52px, 8vw, 100px);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.hero-title .accent {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(16px, 2.5vw, 22px);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 30px;
+}
+
+.hero-description {
+  font-size: 17px;
+  color: rgba(255,255,255,0.75);
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-ember) 100%);
+  color: #fff;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(200, 169, 110, 0.4);
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.2);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+
+.btn-primary:hover::before { transform: translateX(0); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(200, 169, 110, 0.6); }
+
+.btn-outline {
+  border: 1.5px solid rgba(200, 169, 110, 0.6);
+  color: var(--color-gold);
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(200, 169, 110, 0.05);
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background: rgba(200, 169, 110, 0.15);
+  border-color: var(--color-gold);
+  transform: translateY(-3px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  animation: scrollBob 2s ease-in-out infinite;
+}
+
+@keyframes scrollBob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+.scroll-indicator span {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-gold), transparent);
+}
+
+/* ============================================================
+   STATS BAR
+   ============================================================ */
+.stats-bar {
+  background: linear-gradient(135deg, var(--color-gold) 0%, #a07840 100%);
+  padding: 20px 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-item {
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.stat-item strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-item span {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* ============================================================
+   SECTION STYLES
+   ============================================================ */
+section {
+  padding: 100px 40px;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.section-tag::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.section-title .gold { color: var(--color-gold); }
+.section-title em { font-style: italic; }
+
+.section-desc {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  max-width: 560px;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+#about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-images {
+  position: relative;
+  height: 560px;
+}
+
+.about-img-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.about-img-sec {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 55%;
+  height: 55%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 4px solid var(--color-dark);
+}
+
+.about-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-ember));
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 4px solid var(--color-dark);
+  z-index: 3;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.05); }
+}
+
+.about-badge strong {
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.about-badge span {
+  font-size: 11px;
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background: rgba(200, 169, 110, 0.08);
+  border-color: rgba(200, 169, 110, 0.3);
+}
+
+.feature-icon { font-size: 24px; flex-shrink: 0; }
+
+.feature-item h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.feature-item p {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   MENU
+   ============================================================ */
+#menu {
+  background: #0a0a0a;
+  padding: 100px 40px;
+}
+
+.menu-header {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.menu-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  background: transparent;
+  color: var(--color-text-muted);
+  border-radius: 50px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-sans);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.menu-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.menu-card {
+  background: #141414;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(200, 169, 110, 0.3);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(200, 169, 110, 0.1);
+}
+
+.menu-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.menu-card:hover .menu-card-img {
+  transform: scale(1.08);
+}
+
+.menu-card-body {
+  padding: 20px;
+}
+
+.menu-card-category {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.menu-card-name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.menu-card-desc {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.menu-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-price {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.add-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-ember));
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.add-btn:hover {
+  transform: scale(1.2) rotate(90deg);
+}
+
+.menu-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--color-ember);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+.menu-pdf-cta {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  text-align: center;
+}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+#gallery {
+  padding: 100px 40px;
+  background: var(--color-dark);
+}
+
+.gallery-header {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.gallery-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 16px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  height: 250px;
+}
+
+.gallery-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; height: auto; }
+.gallery-item:nth-child(4) { grid-column: 3 / 5; }
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay span {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: #fff;
+  font-style: italic;
+}
+
+/* ============================================================
+   INSTAGRAM / SOCIAL
+   ============================================================ */
+#social {
+  background: #0a0a0a;
+  padding: 100px 40px;
+}
+
+.social-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.reel-phone {
+  position: relative;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.phone-frame {
+  background: #1a1a1a;
+  border-radius: 40px;
+  padding: 12px;
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6), inset 0 0 0 2px rgba(255,255,255,0.05);
+  position: relative;
+}
+
+.phone-screen {
+  border-radius: 30px;
+  overflow: hidden;
+  aspect-ratio: 9/16;
+  background: #000;
+  position: relative;
+}
+
+.phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: reelPulse 4s ease-in-out infinite;
+}
+
+@keyframes reelPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.reel-ui {
+  position: absolute;
+  inset: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.reel-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reel-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-ember));
+  border: 2px solid #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.reel-username {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.reel-follow {
+  margin-left: auto;
+  font-size: 11px;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.1);
+}
+
+.reel-bottom {
+  color: #fff;
+}
+
+.reel-caption {
+  font-size: 12px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.reel-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.reel-stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.reel-side-actions {
+  position: absolute;
+  right: 16px;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.reel-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+  font-size: 11px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+  animation: actionPop 2s ease-in-out infinite;
+}
+
+.reel-action .icon {
+  font-size: 26px;
+}
+
+@keyframes actionPop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.reel-playing {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+}
+
+.reel-playing .bar {
+  width: 3px;
+  background: #fff;
+  border-radius: 3px;
+  animation: soundBars 0.8s ease-in-out infinite alternate;
+}
+
+.reel-playing .bar:nth-child(1) { height: 8px; animation-delay: 0s; }
+.reel-playing .bar:nth-child(2) { height: 14px; animation-delay: 0.1s; }
+.reel-playing .bar:nth-child(3) { height: 10px; animation-delay: 0.2s; }
+.reel-playing .bar:nth-child(4) { height: 16px; animation-delay: 0.3s; }
+.reel-playing .bar:nth-child(5) { height: 6px; animation-delay: 0.4s; }
+
+@keyframes soundBars {
+  from { transform: scaleY(0.4); }
+  to { transform: scaleY(1); }
+}
+
+.social-text .social-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 40px 0;
+}
+
+.social-stat-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.social-stat-card:hover {
+  border-color: rgba(200, 169, 110, 0.3);
+  background: rgba(200, 169, 110, 0.05);
+}
+
+.social-stat-card strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.social-stat-card span {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ig-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(253, 29, 29, 0.3);
+}
+
+.ig-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(253, 29, 29, 0.5);
+}
+
+/* ============================================================
+   RESERVATIONS
+   ============================================================ */
+#reservations {
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.reservations-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1920') center/cover;
+}
+
+.reservations-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+}
+
+.reservations-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reservations-inner .section-title {
+  font-size: clamp(36px, 5vw, 64px);
+}
+
+.reservation-form {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 40px;
+  margin-top: 40px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.form-input:focus {
+  border-color: var(--color-gold);
+  background: rgba(200, 169, 110, 0.05);
+  box-shadow: 0 0 0 3px rgba(200, 169, 110, 0.1);
+}
+
+.form-input option {
+  background: #1a1a1a;
+}
+
+.form-submit {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 18px;
+}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+#testimonials {
+  background: #0a0a0a;
+  padding: 100px 40px;
+}
+
+.testimonials-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(200, 169, 110, 0.3);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.review-quote {
+  font-size: 48px;
+  color: var(--color-gold);
+  line-height: 0.8;
+  font-family: var(--font-serif);
+  margin-bottom: 16px;
+}
+
+.review-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.review-stars {
+  color: var(--color-gold);
+  font-size: 14px;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviewer-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-ember));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.reviewer-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+}
+
+.reviewer-location {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.google-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   LOCATION
+   ============================================================ */
+#location {
+  padding: 100px 40px;
+  background: var(--color-dark);
+}
+
+.location-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.location-map {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 400px;
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.map-placeholder {
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.map-placeholder .map-icon {
+  font-size: 60px;
+  margin-bottom: 16px;
+}
+
+.location-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.location-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.location-item:hover {
+  border-color: rgba(200, 169, 110, 0.3);
+  background: rgba(200, 169, 110, 0.05);
+}
+
+.location-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: rgba(200, 169, 110, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location-item h4 {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.location-item p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.location-item a {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.location-item a:hover {
+  color: var(--color-gold-light);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: #050505;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 60px 40px 30px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: 30px;
+}
+
+.footer-brand .brand-name {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--color-gold);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.social-link {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  transform: translateY(-3px);
+}
+
+.footer-col h5 {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 20px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col ul a {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul a:hover {
+  color: var(--color-gold);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   FLOATING ELEMENTS
+   ============================================================ */
+#whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9000;
+  width: 58px;
+  height: 58px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 28px;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  animation: whatsappPulse 2s ease-in-out infinite;
+}
+
+#whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes whatsappPulse {
+  0%, 100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 8px 40px rgba(37, 211, 102, 0.7), 0 0 0 8px rgba(37, 211, 102, 0.1); }
+}
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  #about, .social-inner, .location-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-images { height: 400px; }
+  .reviews-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 70px 20px; }
+  #navbar { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .stats-bar { grid-template-columns: 1fr 1fr; padding: 20px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item:nth-child(1) { grid-column: 1 / 3; }
+  .gallery-item:nth-child(4) { grid-column: 1 / 2; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .menu-grid { grid-template-columns: 1fr; }
+  #mascot-container { left: 16px; bottom: 16px; }
+  .mascot-svg { width: 70px; }
+}
+    </style>
+</head>
+<body>
+    <a href="https://wa.me/16692328806" id="whatsapp-btn" target="_blank" title="Chatea con nosotros">💬</a>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">
+            <div class="logo-icon">🇨🇴</div>
+            El Bumangués
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">Nosotros</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#gallery">Galería</a></li>
+            <li><a href="#social">Instagram</a></li>
+            <li><a href="#location">Ubicación</a></li>
+            <li><a href="#reservations" class="nav-cta">Reservar Mesa</a></li>
+        </ul>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="embers" id="embers"></div>
+        <div class="hero-content">
+            <div class="hero-badge">🇨🇴 Cocina Santandereana en San Jose</div>
+            <h1 class="hero-title">El<br><span class="accent">Bumangués</span></h1>
+            <p class="hero-subtitle">Restaurante Colombiano · San Jose, CA</p>
+            <p class="hero-description">
+                El sabor auténtico de Bucaramanga llegó a California.
+                Cocina santandereana de tradición, hecha con amor y los ingredientes de siempre.
+            </p>
+            <div class="hero-ctas">
+                <a href="#reservations" class="btn-primary">Reservar Mesa →</a>
+                <a href="#menu" class="btn-outline">Ver Menú</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <strong>100%</strong>
+            <span>Cocina colombiana</span>
+        </div>
+        <div class="stat-item">
+            <strong>10%</strong>
+            <span>Descuento primer pedido</span>
+        </div>
+        <div class="stat-item">
+            <strong>30+</strong>
+            <span>Platos santandereanos</span>
+        </div>
+        <div class="stat-item">
+            <strong>4.8 ⭐</strong>
+            <span>Google Reviews</span>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section>
+        <div id="about">
+            <div class="about-images reveal-left">
+                <img class="about-img-main" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800" alt="Parrilla" loading="lazy">
+                <img class="about-img-sec" src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?q=80&w=600" alt="Ambiente" loading="lazy">
+                <div class="about-badge">
+                    <strong>100%</strong>
+                    <span>Fuego<br>Natural</span>
+                </div>
+            </div>
+            <div class="about-text reveal-right">
+                <div class="section-tag">Nuestra historia</div>
+                <h2 class="section-title">El sabor de <em class="gold">Bucaramanga</em></h2>
+                <p class="section-desc">
+                    El Bumangués nació del amor por la cocina santandereana y el deseo de acercar
+                    esos sabores únicos a la comunidad colombiana y latina en San Jose, California.
+                </p>
+                <p class="section-desc" style="margin-top:16px;">
+                    Cada plato es preparado con recetas originales de Santander: desde el mute y la pepitoria
+                    hasta el cabrito y las hormigas culonas. Sabor de hogar, a miles de kilómetros de distancia.
+                </p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">🍲</span>
+                        <div>
+                            <h4>Recetas Originales</h4>
+                            <p>Cocina auténtica de Santander, Colombia</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🇨🇴</span>
+                        <div>
+                            <h4>100% Colombiano</h4>
+                            <p>Ingredientes y técnicas de tradición</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">👨‍🍳</span>
+                        <div>
+                            <h4>Chef Santandereano</h4>
+                            <p>Preparación con sazón de abuela</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🕖</span>
+                        <div>
+                            <h4>Abierto Todos los Días</h4>
+                            <p>6:00pm – 11:30pm sin excepción</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu">
+        <div class="menu-header">
+            <div class="reveal">
+                <div class="section-tag">Lo que ofrecemos</div>
+                <h2 class="section-title">Nuestro <em class="gold">Menú</em></h2>
+            </div>
+            <div class="menu-filters reveal">
+                <button class="filter-btn active" data-filter="all">Todo</button>
+                <button class="filter-btn" data-filter="platos">🍲 Platos Típicos</button>
+                <button class="filter-btn" data-filter="carnes">🥩 Carnes</button>
+                <button class="filter-btn" data-filter="arepas">🫓 Arepas</button>
+                <button class="filter-btn" data-filter="bebidas">🍺 Bebidas</button>
+            </div>
+        </div>
+        <div class="menu-grid" id="menuGrid">
+            <div class="menu-card reveal" data-category="platos">
+                <div class="menu-badge">Popular</div>
+                <img class="menu-card-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600" alt="Mute Santandereano" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-category">Platos Típicos</div>
+                    <h3 class="menu-card-name">Mute Santandereano</h3>
+                    <p class="menu-card-desc">Sopa tradicional de Santander con maíz pelado, trigo, fríjoles, menudencias y especias de la región.</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-price">$18</span>
+                        <button class="add-btn">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card reveal" data-category="carnes">
+                <div class="menu-badge">Especial</div>
+                <img class="menu-card-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?q=80&w=600" alt="Cabrito" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-category">Carnes</div>
+                    <h3 class="menu-card-name">Cabrito Santandereano</h3>
+                    <p class="menu-card-desc">Chivo tierno asado a la leña con hierbas y especias típicas de Santander. Tradición en cada bocado.</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-price">$26</span>
+                        <button class="add-btn">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card reveal" data-category="platos">
+                <div class="menu-badge">Para 2</div>
+                <img class="menu-card-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600" alt="Bandeja Bumanguesa" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-category">Platos Típicos</div>
+                    <h3 class="menu-card-name">Bandeja Bumanguesa</h3>
+                    <p class="menu-card-desc">Carne asada, chicharrón, chorizo santandereano, arepa, papa criolla, fríjoles y arroz. Un festín completo.</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-price">$32</span>
+                        <button class="add-btn">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card reveal" data-category="carnes">
+                <img class="menu-card-img" src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=600" alt="Pepitoria" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-category">Carnes</div>
+                    <h3 class="menu-card-name">Pepitoria de Chivo</h3>
+                    <p class="menu-card-desc">Guiso tradicional santandereano con menudencias de chivo, arroz amarillo y patacón. Sabor de generaciones.</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-price">$22</span>
+                        <button class="add-btn">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card reveal" data-category="arepas">
+                <img class="menu-card-img" src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=600" alt="Arepa Santandereana" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-category">Arepas & Antojos</div>
+                    <h3 class="menu-card-name">Arepa Santandereana</h3>
+                    <p class="menu-card-desc">Arepa de maíz con chicharrón molido, la auténtica de Bucaramanga. Crujiente por fuera, suave por dentro.</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-price">$8</span>
+                        <button class="add-btn">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card reveal" data-category="bebidas">
+                <img class="menu-card-img" src="https://images.unsplash.com/photo-1543253687-c931c8e01820?q=80&w=600" alt="Chicha" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-category">Bebidas</div>
+                    <h3 class="menu-card-name">Refajo Colombiano</h3>
+                    <p class="menu-card-desc">Mezcla tradicional de cerveza con Colombiana (gaseosa) sobre hielo. La bebida de las fiestas colombianas.</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-price">$7</span>
+                        <button class="add-btn">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-pdf-cta reveal">
+            <p style="color: var(--color-text-muted); margin-bottom: 20px;">¿Quieres ver el menú completo con todos nuestros platos y precios?</p>
+            <a href="#" class="btn-primary" onclick="downloadMenu(event)">⬇ Descargar Menú Completo (PDF)</a>
+            &nbsp;&nbsp;
+            <a href="#reservations" class="btn-outline">Ordenar Online</a>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <div class="gallery-header reveal">
+            <div class="section-tag">Nuestra Parrilla</div>
+            <h2 class="section-title">Cada plato, <em class="gold">una obra</em></h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800" alt="Carne">
+                <div class="gallery-overlay"><span>Churrasco especial de la casa</span></div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600" alt="Restaurante">
+                <div class="gallery-overlay"><span>Nuestro ambiente</span></div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?q=80&w=600" alt="Bar">
+                <div class="gallery-overlay"><span>Bar y lounge</span></div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800" alt="Parrillada">
+                <div class="gallery-overlay"><span>Parrillada para compartir</span></div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=600" alt="Corte premium">
+                <div class="gallery-overlay"><span>Cortes premium seleccionados</span></div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?q=80&w=600" alt="Ribeye">
+                <div class="gallery-overlay"><span>Ribeye 14oz a punto</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section id="social">
+        <div class="social-inner">
+            <div class="reel-phone reveal-left">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=400" alt="Reel">
+                        <div class="reel-ui">
+                            <div class="reel-top">
+                                <div class="reel-avatar">🔥</div>
+                                <span class="reel-username">@haciendaparrillaoficial</span>
+                                <span class="reel-follow">Seguir</span>
+                            </div>
+                            <div class="reel-bottom">
+                                <p class="reel-caption">🇨🇴 El mute santandereano que te hace sentir en casa... ¡ven a probarlo! #Bumangues #ColombiaSanJose #Santander</p>
+                                <div class="reel-stats">
+                                    <span class="reel-stat">❤️ 4.2K</span>
+                                    <span class="reel-stat">💬 312</span>
+                                    <span class="reel-stat">👁 58K</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reel-side-actions">
+                            <div class="reel-action">
+                                <span class="icon">❤️</span>
+                                <span>4.2K</span>
+                            </div>
+                            <div class="reel-action">
+                                <span class="icon">💬</span>
+                                <span>312</span>
+                            </div>
+                            <div class="reel-action">
+                                <span class="icon">↗️</span>
+                                <span>Compartir</span>
+                            </div>
+                        </div>
+                        <div class="reel-playing">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social-text reveal-right">
+                <div class="section-tag">Síguenos</div>
+                <h2 class="section-title">Estamos en <em class="gold">Instagram</em></h2>
+                <p class="section-desc">
+                    Mira en vivo cómo preparamos los platos más queridos de Santander.
+                    Nuestra comunidad colombiana en San Jose nos sigue cada día.
+                </p>
+                <div class="social-stats">
+                    <div class="social-stat-card">
+                        <strong>58K</strong>
+                        <span>Vistas reel</span>
+                    </div>
+                    <div class="social-stat-card">
+                        <strong>4.2K</strong>
+                        <span>Likes</span>
+                    </div>
+                    <div class="social-stat-card">
+                        <strong>12K</strong>
+                        <span>Seguidores</span>
+                    </div>
+                    <div class="social-stat-card">
+                        <strong>312</strong>
+                        <span>Comentarios</span>
+                    </div>
+                </div>
+                <a href="https://elbumanguesca.com/" target="_blank" class="ig-btn">
+                    🌐 Ver @elbumanguesca
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVATIONS -->
+    <section id="reservations">
+        <div class="reservations-bg"></div>
+        <div class="reservations-inner">
+            <div class="reveal">
+                <div class="section-tag">Reserva tu mesa</div>
+                <h2 class="section-title">Reserva <em class="gold">Ahora</em></h2>
+                <p class="section-desc" style="margin: 0 auto 8px; text-align: center;">Sin cargos. Cancela cuando quieras. ¡Mesas reservadas por solo 1 hora!</p>
+            </div>
+            <div class="reservation-form reveal">
+                <div class="form-grid">
+                    <input type="text" class="form-input" placeholder="Tu nombre completo">
+                    <input type="tel" class="form-input" placeholder="Teléfono / WhatsApp">
+                    <input type="date" class="form-input">
+                    <input type="time" class="form-input">
+                    <select class="form-input">
+                        <option value="">Número de personas</option>
+                        <option>1-2 personas</option>
+                        <option>3-4 personas</option>
+                        <option>5-6 personas</option>
+                        <option>7-10 personas</option>
+                        <option>Grupo +10 personas</option>
+                    </select>
+                    <select class="form-input">
+                        <option value="">Tipo de evento</option>
+                        <option>Cena casual</option>
+                        <option>Cumpleaños</option>
+                        <option>Aniversario</option>
+                        <option>Evento familiar</option>
+                        <option>Celebración de negocios</option>
+                    </select>
+                </div>
+                <textarea class="form-input" placeholder="Notas especiales (alergias, peticiones, decoración...)" rows="3" style="resize: vertical; margin-bottom: 20px;"></textarea>
+                <button class="btn-primary form-submit" onclick="reservarMesa()">🍽️ Confirmar Reserva</button>
+                <p style="text-align: center; margin-top: 16px; font-size: 13px; color: var(--color-text-muted);">
+                    O llámanos directamente: <a href="tel:+1234567890" style="color: var(--color-gold); text-decoration: none; font-weight: 600;">(123) 456-7890</a>
+                    &nbsp;|&nbsp;
+                    <a href="https://wa.me/1234567890" style="color: #25D366; text-decoration: none; font-weight: 600;">💬 WhatsApp</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+        <div class="testimonials-inner">
+            <div class="testimonials-header reveal">
+                <div class="section-tag">Lo que dicen</div>
+                <h2 class="section-title">Clientes <em class="gold">Felices</em></h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card reveal">
+                    <div class="google-badge">🇬</div>
+                    <div class="review-quote">"</div>
+                    <p class="review-text">El mute santandereano me hizo llorar de nostalgia. Igual al de mi mamá en Bucaramanga. ¡Gracias por traer ese sabor a San Jose! Ya somos clientes fijos.</p>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">L</div>
+                        <div>
+                            <div class="reviewer-name">Luisa Martínez</div>
+                            <div class="reviewer-location">San Jose, CA · Google Reviews</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card reveal">
+                    <div class="google-badge">🇬</div>
+                    <div class="review-quote">"</div>
+                    <p class="review-text">El cabrito santandereano es espectacular. El servicio excelente y el ambiente muy acogedor. Es el único lugar en el área donde encuentro comida colombiana tan auténtica.</p>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">J</div>
+                        <div>
+                            <div class="reviewer-name">Jorge Prada</div>
+                            <div class="reviewer-location">San Jose, CA · Google Reviews</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card reveal">
+                    <div class="google-badge">🇬</div>
+                    <div class="review-quote">"</div>
+                    <p class="review-text">Vinimos toda la familia a cenar y quedamos encantados. La arepa santandereana con chicharrón es un pecado. El refajo completó la noche perfecta. Volveremos siempre.</p>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">C</div>
+                        <div>
+                            <div class="reviewer-name">Carolina Díaz</div>
+                            <div class="reviewer-location">Santa Clara, CA · Google Reviews</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section id="location">
+        <div class="location-inner">
+            <div class="location-map reveal-left">
+                <div class="map-placeholder">
+                    <div class="map-icon">📍</div>
+                    <p style="font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px;">Hacienda Parrilla</p>
+                    <p style="font-size: 14px; color: var(--color-text-muted);">Mapa de Google Maps integrado aquí</p>
+                    <a href="https://www.google.com/maps" target="_blank" class="btn-outline" style="display: inline-block; margin-top: 20px; padding: 10px 24px; font-size: 12px;">
+                        Abrir en Google Maps →
+                    </a>
+                </div>
+            </div>
+            <div class="location-details reveal-right">
+                <div class="section-tag">Encuéntranos</div>
+                <h2 class="section-title">Visítanos <em class="gold">pronto</em></h2>
+                <div class="location-item">
+                    <div class="location-icon">📍</div>
+                    <div>
+                        <h4>Dirección</h4>
+                        <p>480 Blossom Hill Rd,<br>San Jose, CA 95123</p>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-icon">🕐</div>
+                    <div>
+                        <h4>Horario</h4>
+                        <p>Todos los días:<br>6:00pm – 11:30pm</p>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-icon">📞</div>
+                    <div>
+                        <h4>Contacto</h4>
+                        <p><a href="tel:+16692328806">(669) 232-8806</a><br>
+                        <a href="https://wa.me/16692328806">💬 WhatsApp</a></p>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-icon">🛵</div>
+                    <div>
+                        <h4>Ordena Online</h4>
+                        <p>Pide a domicilio en <a href="https://elbumanguesca.com/" target="_blank">elbumanguesca.com</a><br>
+                        Usa código <strong style="color:var(--color-gold)">FRSTWB</strong> — 10% off primer pedido</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-name">🇨🇴 El Bumangués</div>
+                    <p>Cocina santandereana auténtica en el corazón de San Jose, California. El sabor de Bucaramanga, a pocas millas de tu casa.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/haciendaparrillaoficial/" target="_blank" class="social-link">📸</a>
+                        <a href="https://facebook.com" class="social-link">👍</a>
+                        <a href="https://tiktok.com" class="social-link">🎵</a>
+                        <a href="https://wa.me/1234567890" class="social-link">💬</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Menú</h5>
+                    <ul>
+                        <li><a href="#menu">Carnes</a></li>
+                        <li><a href="#menu">Parrilladas</a></li>
+                        <li><a href="#menu">Mariscos</a></li>
+                        <li><a href="#menu">Bebidas</a></li>
+                        <li><a href="#">Menú PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Visítanos</h5>
+                    <ul>
+                        <li><a href="#about">Nuestra historia</a></li>
+                        <li><a href="#reservations">Reservar mesa</a></li>
+                        <li><a href="#location">Ubicación</a></li>
+                        <li><a href="#gallery">Galería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Servicios</h5>
+                    <ul>
+                        <li><a href="#">Catering</a></li>
+                        <li><a href="#">Eventos privados</a></li>
+                        <li><a href="#">Orden online</a></li>
+                        <li><a href="#">Domicilio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Hacienda Parrilla. Todos los derechos reservados.</p>
+                <p>Diseñado con ❤️ para la comunidad latina en USA</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// Generar estrellas sección Mundial
+const starsContainer = document.getElementById('mundialStars');
+if (starsContainer) {
+    const colors = ['#c8a96e','#e74c1c','#f1c40f','#27ae60','#fff'];
+    for (let i = 0; i < 28; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('star-dot');
+        const size = 3 + Math.random() * 5;
+        dot.style.cssText = `
+            width:${size}px; height:${size}px;
+            left:${Math.random()*100}%;
+            top:${Math.random()*100}%;
+            background:${colors[Math.floor(Math.random()*colors.length)]};
+            animation-duration:${2+Math.random()*3}s;
+            animation-delay:${Math.random()*3}s;
+        `;
+        starsContainer.appendChild(dot);
+    }
+}
+
+// Generar embers
+const embersContainer = document.getElementById('embers');
+for (let i = 0; i < 20; i++) {
+    const ember = document.createElement('div');
+    ember.classList.add('ember');
+    ember.style.left = Math.random() * 100 + '%';
+    ember.style.animationDuration = (3 + Math.random() * 5) + 's';
+    ember.style.animationDelay = (Math.random() * 5) + 's';
+    ember.style.width = ember.style.height = (2 + Math.random() * 4) + 'px';
+    ember.style.opacity = (0.3 + Math.random() * 0.7).toString();
+    embersContainer.appendChild(ember);
+}
+
+// Mascota — desaparece al scroll, reaparece al volver arriba
+const mascot = document.getElementById('mascot-container');
+let mascotClosed = false;
+
+window.addEventListener('scroll', () => {
+    if (mascotClosed) return;
+    if (window.scrollY > 120) {
+        mascot.classList.add('hidden');
+    } else {
+        mascot.classList.remove('hidden');
+    }
+});
+
+function closeMascot() {
+    mascotClosed = true;
+    mascot.classList.add('hidden');
+}
+
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, i * 80);
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+    revealObserver.observe(el);
+});
+
+// Menu filters
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.menu-card').forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+                card.style.display = '';
+                setTimeout(() => card.style.opacity = '1', 10);
+            } else {
+                card.style.opacity = '0';
+                setTimeout(() => card.style.display = 'none', 300);
+            }
+        });
+    });
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// Mobile menu
+function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.position = 'absolute';
+    links.style.top = '80px';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = '#0f0f0f';
+    links.style.flexDirection = 'column';
+    links.style.padding = '20px 40px';
+    links.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
+    links.style.zIndex = '999';
+}
+
+// Download menu
+function downloadMenu(e) {
+    e.preventDefault();
+    alert('📄 El menú completo en PDF estará disponible próximamente.\n\nPor ahora, puedes ver nuestro menú digital en esta página o contactarnos directamente.');
+}
+
+// Reservación
+function reservarMesa() {
+    alert('✅ ¡Gracias por tu reserva!\n\nTe confirmaremos por WhatsApp en los próximos minutos.\n\nNos vemos pronto en Hacienda Parrilla 🔥');
+}
+
+// Add to cart micro-interaction
+document.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        this.textContent = '✓';
+        this.style.background = '#27ae60';
+        setTimeout(() => {
+            this.textContent = '+';
+            this.style.background = '';
+        }, 1500);
+    });
+});
+    </script>
+</body>
+</html>
